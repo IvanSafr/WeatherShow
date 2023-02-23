@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{%block title%} Главная {%endblock%}
+
+{% block pagecontent %}
+
+<div class = "conteiner mt-5">
+    <div class="row">
+        <p></p>
+        <div class = "col-5 offset-2">
+          <form action="">
+              <label for="city" >Город</label>
+              <input type="text" id="city" class = "form-control" name="city" placeholder="Введите название города">
+              <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+          </form>
+        <br>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <p></p>
+        <div class = "col-5 offset-2 background-light">
+            <h2>Информация</h2>
+            <div class="alert alert-danger">
+                Погода в Брянске
+            </div>
+        </div>
+
+        <br>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
