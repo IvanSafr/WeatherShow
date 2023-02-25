@@ -1,3 +1,7 @@
-from django.db import models
+from django.db import models as md
 
-# Create your models here.
+class city(md.Model):
+    name = md.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name

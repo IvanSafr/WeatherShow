@@ -7,31 +7,42 @@
 <div class = "conteiner mt-5">
     <div class="row">
         <p></p>
-        <div class = "col-5 offset-2">
-          <form action="">
-              <label for="city" >Город</label>
-              <input type="text" id="city" class = "form-control" name="city" placeholder="Введите название города">
-              <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
-          </form>
-        <br>
-
+       <div class = "col-8 offset-2 border border-black border-3 rounded-3 bg bg-light">
+            <div class="row">
+                  <form action="">
+                      <label for="city" >Выбор города</label>
+                      <input type="text" id="city" class = "form-control" name="city" placeholder="Введите название города">
+                      <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+                  </form>
+                <br>
+                <p></p>
+            </div>
         </div>
     </div>
 
     <div class="row">
         <p></p>
-        <div class = "col-5 offset-2 background-light">
-            <h2>Информация</h2>
-            <div class="alert alert-danger">
-                Погода в Брянске
+        <div class = "col-8 offset-2 border border-black border-3 rounded-3 bg bg-light">
+            <div class="row">
+
+                <div class="col-3">
+                    <p class="fs-2"></p>
+                    <img  class="offset-1" width="200" height="200" src="https://openweathermap.org/img/w/{{info.icon}}.png" alt="Изображение погоды">
+                </div>
+                <div class="col-5">
+                    <br>
+                    <p class="fs-2">Информация: </p>
+                    <h6 class="fw-bold">Город: {{ info.city}}</h6>
+                    <h6 class="fw-bold">Скорость ветра: {{ info.wind}} м/с</h6>
+                    <h6 class="fw-bold">Темпрература: {{ info.temp }} °C</h6>
+                    <h6 class="fw-bold">Описание погоды: {{ info.weath}}</h6>
+                </div>
+
             </div>
         </div>
 
-        <br>
-
         </div>
     </div>
-
 </div>
 
 
