@@ -1,7 +1,11 @@
-from django.db import models as md
+from django.db import models
 
-class city(md.Model):
-    name = md.CharField(max_length=30)
+class City(models.Model):
+    name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Город"
+        verbose_name_plural = "Города"

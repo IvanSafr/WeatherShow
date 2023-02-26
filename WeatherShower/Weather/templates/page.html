@@ -4,48 +4,71 @@
 
 {% block pagecontent %}
 
-<div class = "conteiner mt-5">
-    <div class="row">
-        <p></p>
-       <div class = "col-8 offset-2 border border-black border-3 rounded-3 bg bg-light">
-            <div class="row">
-                  <form action="">
-                      <label for="city" >Выбор города</label>
-                      <input type="text" id="city" class = "form-control" name="city" placeholder="Введите название города">
-                      <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
-                  </form>
-                <br>
-                <p></p>
-            </div>
-        </div>
-    </div>
+<div class="conteiner mt-5">
+  <div class="row">
+    <p></p>
+    <p></p>
 
-    <div class="row">
-        <p></p>
-        <div class = "col-8 offset-2 border border-black border-3 rounded-3 bg bg-light">
+    <div class="col-5 offset-1">
+        <h1>Текущий город:</h1>
+      <div class = "col-12 border border-black border-3 rounded-3 bg bg-light">
             <div class="row">
-
-                <div class="col-3">
+                <div class="col-4 offset-1">
                     <p class="fs-2"></p>
-                    <img  class="offset-1" width="200" height="200" src="https://openweathermap.org/img/w/{{info.icon}}.png" alt="Изображение погоды">
+                    <img  class="offset-0" width="200" height="200" src="https://openweathermap.org/img/w/{{l_info.icon}}.png" alt="Изображение погоды">
                 </div>
-                <div class="col-5">
+                <div class="col-7">
                     <br>
-                    <p class="fs-2">Информация: </p>
-                    <h6 class="fw-bold">Город: {{ info.city}}</h6>
-                    <h6 class="fw-bold">Скорость ветра: {{ info.wind}} м/с</h6>
-                    <h6 class="fw-bold">Темпрература: {{ info.temp }} °C</h6>
-                    <h6 class="fw-bold">Описание погоды: {{ info.weath}}</h6>
-                </div>
+                    <p class="fs-2">Город: <b>{{ l_info.city}} </b> </p>
 
+                    <h6 class="fw-bold">Скорость ветра: {{ l_info.wind}} м/с</h6>
+                    <h6 class="fw-bold">Темпрература: {{ l_info.temp }} °C</h6>
+                    <h6 class="fw-bold">Описание погоды: {{ l_info.weath}}</h6>
+                </div>
+            </div>
+      </div>
+      <br>
+      <div class = "col-12 border border-black border-3 rounded-3 bg bg-light">
+            <div class="row">
+              <p></p>
+                <div class="col-10 offset-1">
+                  <form action="" method="post">
+                      {% csrf_token %}
+
+                      {{ form.name }}
+                      <p></p>
+                      <input type="submit" name="send" value="Показать погоду" class="mt-2 btn btn-success">
+                  </form>
+                  <p></p>
+                </div>
             </div>
         </div>
+    </div>
 
+
+    <div class="col-5 offset-1">
+      <h1>Смотрели ранее:</h1>
+
+        {% for info in all_info %}
+      <div class = "col-11 border border-black border-3 rounded-3 bg bg-light">
+          <div class="row">
+              <div class="col-4 offset-1">
+                  <p class="fs-2"></p>
+                  <img  class="offset-0" width="150" height="150" src="https://openweathermap.org/img/w/{{info.icon}}.png" alt="Изображение погоды">
+              </div>
+              <div class="col-6">
+                  <br>
+                  <p class="fs-2">Город: <b>{{ info.city}} </b> </p>
+
+                  <h6 class="fw-bold">Скорость ветра: {{ info.wind}} м/с</h6>
+                  <h6 class="fw-bold">Темпрература: {{ info.temp }} °C</h6>
+                  <h6 class="fw-bold">Описание погоды: {{ info.weath}}</h6>
+              </div>
         </div>
     </div>
+    <br>
+        {% endfor %}
+  </div>
 </div>
-
-
-
 
 {% endblock %}
